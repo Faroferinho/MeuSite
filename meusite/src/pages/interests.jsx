@@ -1,5 +1,9 @@
 export default function Interests(){
     return(
-        <h1>Interesses</h1>
+        <>
+            <div className="content">
+                <h1>Interesses</h1>
+            </div>
+        </>
     );
 }
