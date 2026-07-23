@@ -11,7 +11,7 @@ export default function Header(){
                 
                 {/* TODO - Put logo here, lol*/}
                 <a className="logo">
-                    <Link to="/">
+                    <Link to="/" className="logo">
                         🐙
                     </Link>
                 </a>
@@ -30,15 +30,19 @@ export default function Header(){
                             menuPortfolioOpen && (
                                 <ul className="dropdown-menu">
                                     <li>
-                                        <Link to="/">teste</Link>
+                                        <Link to="/forense-digital">Forense Digital</Link>
                                     </li>
 
                                     <li>
-                                        <Link to="/1">teste1</Link>
+                                        <Link to="/opsec">OPSEC</Link>
                                     </li>
 
                                     <li>
-                                        <Link to="/2">teste2</Link>
+                                        <Link to="/programacao">Programação</Link>
+                                    </li>
+
+                                    <li>
+                                        <Link to="/docker">Docker</Link>
                                     </li>
                                 </ul>
                             )
@@ -56,18 +60,19 @@ export default function Header(){
                             menuInterestsOpen && (
                                 <ul className="dropdown-menu">
                                     <li>
-                                        <Link to="/">teste</Link>                                        
+                                        <Link to="/mitologia">Mitologia</Link>                                        
                                     </li>
+
                                     <li>
-                                        <Link to="/1">testeA</Link>    
+                                        <Link to="/paleontologia">Paleontologia</Link>    
                                     </li>
+
                                     <li>
-                                        <Link to="/2">testeB</Link>
+                                        <Link to="/ocultismo">Ocultismo</Link>
                                     </li>
                                 </ul>
                             )
-                        }
-                        
+                        }                        
                     </li>
                     
                 </ul>
