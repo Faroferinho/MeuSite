@@ -1,24 +1,27 @@
-.header{
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 2000; 
+
   background-color: var(--accent-bg);
-  overflow: auto;
   padding: 1rem;
   margin: -16px;
   margin-right: -8px;
   display: flex;
 
-  .navbar{
+  .navbar {
     width: 100%;
     display: flex;
     padding: 0 40px;
     align-items: center;
   }
 
-  .logo{
+  .logo {
     font-size: 2rem;
     text-decoration: none;
   }
 
-  .nav-links{
+  .nav-links {
     display: flex;
     list-style: none;
   }
@@ -27,7 +30,7 @@
     position: relative;
   }
 
-  .nav-button{
+  .nav-button {
     border: none;
     font-size: 1rem;
     cursor: pointer;
@@ -37,24 +40,20 @@
     color: var(--accent);
   }
 
-  .nav-button:hover{
+  .nav-button:hover {
     border-radius: 3px;
     background-color: var(--bg);
   }
 
-  .dropdown-menu{
+  .dropdown-menu {
     background-color: var(--accent-bg);
     color: var(--accent);
-
     position: absolute;
-
     min-width: 180px;
-
     list-style: none;
-
     border-radius: 6px;
     overflow: hidden;
-    box-shadow: 0 5px, 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
     z-index: 1000;
   }
 
@@ -66,25 +65,21 @@
     transition: background .5s;
   }
 
-  @media (max-width: 768px){
-    .header{
+  @media (max-width: 768px) {
+    .header {
       padding: 0 20px;
     }
-
-    .nav-links{
+    .nav-links {
       gap: 10px;
     }
-
-    .navbar{
+    .navbar {
       justify-content: center;
     }
-
-    .nav-button{
+    .nav-button {
       padding: 10px;
       font-size: 1rem;
     }
-
-    .dropdown-menu{
+    .dropdown-menu {
       min-width: 150px;
     }
   }
@@ -96,10 +91,28 @@
   margin: 0 auto;
   width: clamp(320px, 85%, 1024px);
 
-  ul{
-    list-style: none;
+  .split-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    width: 100%;
+    margin: 2rem 0;
 
-    a{
+    .half {
+      flex: 1;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 1024px) {
+      flex-direction: column;
+    }
+  }
+
+  ul {
+    list-style: none;
+    a {
       color: var(--text);
       text-decoration: none;
     }
@@ -320,13 +333,6 @@
         width: 32px;
         height: 32px;
     }
-  }
-
-  .terminal {
-    flex: 1;
-    width: 40%;
-    height: 40%;
-    background-color: #1A05A2;
   }
 }
 

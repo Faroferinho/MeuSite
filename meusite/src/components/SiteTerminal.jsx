@@ -1,9 +1,9 @@
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { Terminal } from "@xterm/xterm";
 import { FitAddon } from "@xterm/addon-fit";
 import '@xterm/xterm/css/xterm.css';
 
-export default function Terminal(){
+export default function SiteTerminal(){
     const terminalRef = useRef(null);
 
     useEffect(
@@ -12,7 +12,8 @@ export default function Terminal(){
                 {
                     cursorBlink: true,
                     theme: {
-                        background: '#2f58cd'
+                        background: '#1e1e1e',
+                        foreground: '2F58CD'
                     }
                 }
             );
@@ -28,21 +29,28 @@ export default function Terminal(){
                 term.write(event.data);
             }
 
-            const handleResize = () => fitAddon.fit();
+            term.onData(
+                (data) => {
+                    if(ws.readyState === WebSocket.OPEN){
+                        ws.send(data);
+                    }
+                }
+            )
 
+            const handleResize = () => fitAddon.fit();
             window.addEventListener('resize', handleResize);
 
             return () => {
                 window.removeEventListener('resize', handleResize);
                 ws.close();
                 term.dispose();
-            }
+            };
         },
     []);
 
     return (
         <>
-            <div ref={terminalRef} className="terminal"/>
+            <div ref={terminalRef} className="terminal" />
         </>
     );
 }
