@@ -89,24 +89,30 @@
   padding-top: 64px;
   padding-bottom: 64px;
   margin: 0 auto;
-  width: clamp(320px, 85%, 1024px);
+  width: clamp(85%, 90%, 1024px);
 
   .split-container {
     display: flex;
-    justify-content: space-between;
-    gap: 2rem;
+    justify-content: space-between; 
+    
+    gap: 1rem; 
+    
     width: 100%;
     margin: 2rem 0;
+    
+    align-items: flex-start;
 
     .half {
       flex: 1;
-      padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      min-width: 0;
+      
+      padding: 1rem; 
     }
 
     @media (max-width: 1024px) {
       flex-direction: column;
+
+      align-items: stretch;
     }
   }
 
@@ -120,21 +126,28 @@
 
   .table_contents {
     position: fixed;
-    left: 2rem;
+    
+    left: 0; 
     top: 6rem;
 
     width: 240px;
     max-height: calc(100vh - 8rem);
     overflow-y: auto;
-
     padding: 1rem;
 
     background: var(--accent-bg);
-    border-radius: 8px;
-
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-
+    border-radius: 0 8px 8px 0; 
+    
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.15); 
     z-index: 1000;
+
+    transform: translateX(calc(-100% + 1.5rem)); 
+    
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); 
+  }
+
+  .table_contents:hover {
+    transform: translateX(0);
   }
 
   .table_contents ul {
@@ -173,6 +186,13 @@
 
   .table_contents .head5 {
       margin-left: 3rem;
+  }
+
+  /* TODO - disable clicking while on mobile */
+  @media (max-width: 1024px) {
+    .table_contents{
+      opacity: 0;
+    }
   }
 
   .code-container {
@@ -242,7 +262,6 @@
     transform: translateY(0);
 }
 
-/* Copy button */
 .copy-button {
     position: absolute;
 
