@@ -1,8 +1,8 @@
 export default function Docker(){
     return (
         <>
-            <div className="docker">
-                <h1>Programação</h1>
+            <div className="content">
+                <h1>Docker</h1>
             </div>
         </>
     );
