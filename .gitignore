@@ -1,1 +1,9 @@
 /terminal-simulacrum
+/ProjectsAPI/.idea
+/ProjectsAPI/.mvn
+/ProjectsAPI/src/test
+/ProjectsAPI/target
+
+/ProjectsAPI/compose.yaml
+/ProjectsAPI/mvnw
+/ProjectsAPI/mvnw.cmd
