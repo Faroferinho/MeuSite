@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.util.Arrays;
 
 @RestController
@@ -16,7 +19,7 @@ public class FileController {
 
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
     private String uploadFile(@RequestParam("file") MultipartFile file){
-        String filePath = System.getProperty("user.dir") + "/Uploads" + File.separator + file.getOriginalFilename();
+        String filePath = System.getProperty("user.dir") + File.separator + file.getOriginalFilename() + ".temp";
         String fileUploadStatus;
 
         try {
@@ -25,15 +28,31 @@ public class FileController {
 
             fileOutputStream.close();
             fileUploadStatus = "File Uploaded Successfully";
-        } catch (FileNotFoundException e) {
-            fileUploadStatus = "Error Uploading File :(";
-            throw new RuntimeException(e);
         } catch (IOException e) {
             fileUploadStatus = "Error Uploading File :(";
             throw new RuntimeException(e);
         }
+
+        removeTempExtension(file, filePath);
+
         return fileUploadStatus;
 
+    }
+
+    private void removeTempExtension(MultipartFile file, String path){
+        String fileName = file.getOriginalFilename();
+        int lastDotIndex = fileName.length();
+        int lastSlashIndex = path.lastIndexOf('\\');
+
+        Path originalPath = Path.of(path);
+        fileName = fileName.substring(0, lastDotIndex);
+        Path newPath = Path.of(path.substring(0, lastSlashIndex) + File.separator + fileName);
+
+        try {
+            Files.move(originalPath, newPath, StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @RequestMapping(value = "/download/{path:.+}", method = RequestMethod.GET)
@@ -48,7 +67,7 @@ public class FileController {
     @RequestMapping(value = "/download/{path:.+}")
     private ResponseEntity downloadFile(@PathVariable("path") String filename) throws FileNotFoundException{
         String fileUploadPath = System.getProperty("user.dir") + "/Uploads";
-        String fileNames[] = this.getListOfFiles();
+        String[] fileNames = this.getListOfFiles();
         boolean contains = Arrays.asList(fileNames).contains(fileUploadPath);
 
         if(!contains){
