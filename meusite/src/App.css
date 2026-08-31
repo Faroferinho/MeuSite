@@ -91,6 +91,10 @@
   margin: 0 auto;
   width: clamp(85%, 90%, 1024px);
 
+  .divider{
+    color: var(--text);
+  }
+
   .split-container {
     display: flex;
     justify-content: space-between; 
@@ -209,14 +213,14 @@
 
     transition: border-color 0.2s ease,
                 box-shadow 0.2s ease;
-}
+  }
 
-.code-container:hover {
+  .code-container:hover {
     border-color: #777;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
-}
+  }
 
-.code-content {
+  .code-content {
     margin: 0;
     padding: 20px;
 
@@ -228,9 +232,9 @@
     line-height: 1.6;
 
     white-space: pre;
-}
+  }
 
-.code-label {
+  .code-label {
     position: absolute;
 
     top: -13px;
@@ -255,14 +259,14 @@
         transform 0.2s ease;
 
     pointer-events: none;
-}
+  }
 
-.code-container:hover .code-label {
+  .code-container:hover .code-label {
     opacity: 1;
     transform: translateY(0);
-}
+  }
 
-.copy-button {
+  .copy-button {
     position: absolute;
 
     top: 10px;
@@ -287,19 +291,19 @@
         background 0.2s ease,
         color 0.2s ease,
         border-color 0.2s ease;
-}
+  }
 
-.copy-button:hover {
+  .copy-button:hover {
     background: #3a3a3a;
     color: white;
     border-color: #777;
-}
+  }
 
-.copy-button:active {
+  .copy-button:active {
     transform: scale(0.95);
-}
+  }
 
-.copy-popup {
+  .copy-popup {
     position: fixed;
 
     bottom: 30px;
@@ -323,9 +327,9 @@
     z-index: 9999;
 
     animation: popupAnimation 0.3s ease;
-}
+  }
 
-@keyframes popupAnimation {
+  @keyframes popupAnimation {
     from {
         opacity: 0;
         transform: translate(-50%, 10px);
@@ -335,9 +339,9 @@
         opacity: 1;
         transform: translate(-50%, 0);
     }
-}
+  }
 
-@media (max-width: 600px) {
+  @media (max-width: 600px) {
     .code-container {
         width: 95%;
         margin: 25px auto;
@@ -352,6 +356,60 @@
         width: 32px;
         height: 32px;
     }
+  }
+
+  .file-dropzone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 24px;
+    border: 2px dashed var(--accent);
+    border-radius: 12px;
+    background-color: var(--text);
+    cursor: pointer;
+    text-align: center;
+    font-family: system-ui, -apple-system, sans-serif;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+  }
+
+  .file-dropzone:hover {
+    border-color: var(--accent);
+    background-color: var(--text);
+  }
+
+  .file-dropzone input[type="file"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .file-dropzone-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+  }
+
+  .file-dropzone-text {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--bg);
+  }
+
+  .file-dropzone-subtext {
+    font-size: 0.8rem;
+    color: var(--accent-bg);
+    margin-top: 4px;
+  }
+  
+  .file-input{
+    display: 'none'
   }
 }
 

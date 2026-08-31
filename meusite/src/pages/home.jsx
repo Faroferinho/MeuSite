@@ -58,6 +58,17 @@ export default function Home(){
                             </li>
                         </ul>
                     </div>
+                    {/*
+                    <Route path="/forense-digital" element={<Forensics />} />
+                    <Route path="/opsec" element={<OPSEC/>} />
+                    <Route path="/docker" element={<Docker />} />
+
+                    <Route path="/signature-checker" element={<MagicNumbers />} />
+
+                    <Route path="/mitologia" element={<Mythology />} />
+                    <Route path="/paleontologia" element={<Palontology />} />
+                    <Route path="/ocultismo" element={<Ocultism />} />
+                    */}
                 </div>
             </div>
         </>

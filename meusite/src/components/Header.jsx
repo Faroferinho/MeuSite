@@ -2,8 +2,9 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 export default function Header(){
-    const [menuPortfolioOpen, setMenuPortfolioOpen] = useState(false);
+    const [menuStudyOpen, setMenuStudyOpen] = useState(false);
     const [menuInterestsOpen, setMenuInterestsOpen] = useState(false);
+    const [menuPortfolioOpen, setMenuPortfolioOpen] = useState(false);
 
     return(
         <header className="header">
@@ -19,15 +20,15 @@ export default function Header(){
                 <ul className="nav-links">
 
                     <li className="dropdown"
-                        onMouseEnter={() => setMenuPortfolioOpen(true)}
-                        onMouseLeave={() => setMenuPortfolioOpen(false)}
+                        onMouseEnter={() => setMenuStudyOpen(true)}
+                        onMouseLeave={() => setMenuStudyOpen(false)}
                     >
                         <Link className="nav-button" to="/portfolio">
-                            Portifólio
+                            Estudos
                         </Link>
 
                         {
-                            menuPortfolioOpen && (
+                            menuStudyOpen && (
                                 <ul className="dropdown-menu">
                                     <li>
                                         <Link to="/forense-digital">Forense Digital</Link>
@@ -35,10 +36,6 @@ export default function Header(){
 
                                     <li>
                                         <Link to="/opsec">OPSEC</Link>
-                                    </li>
-
-                                    <li>
-                                        <Link to="/programacao">Programação</Link>
                                     </li>
 
                                     <li>
@@ -50,8 +47,26 @@ export default function Header(){
                     </li>
 
                     <li className="dropdown"
+                        onMouseEnter={() => setMenuPortfolioOpen(true)}
+                        onMouseLeave={() => setMenuPortfolioOpen(false)}
+                    >
+                        <Link className="nav-button" to="/interests">
+                            Portfolio
+                        </Link>
+                        {
+                            menuPortfolioOpen && (
+                                <ul className="dropdown-menu">
+                                    <li>
+                                        <Link to="/signature-checker">Magic Number Checker</Link>
+                                    </li>
+                                </ul>
+                            )
+                        }
+                    </li>
+
+                    <li className="dropdown"
                         onMouseEnter={() => setMenuInterestsOpen(true)}
-                        onMouseLeave={() => setMenuInterestsOpen(false)}
+                        onMouseLeave={() => setMenuInterestsOpen(false)}                        
                     >
                         <Link className="nav-button" to="/interests">
                             Interesses

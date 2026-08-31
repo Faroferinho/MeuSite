@@ -10,6 +10,7 @@ export default function Forensics(){
                 <div className="split-container">
                     <div className="half">
                         <h1>Forense Digital</h1>
+                        <hr className="divider"/>
                         <p>
                             Forense Digital é um ramo da ciência forense que envolve a recuperação, investigação, examinação e analise de material envolvendo qualquer dispositivo digital, se tornando progressivamente mais prevalente conforme a comodidade de dispositivos digitais também acarreta na capacidade de explorar os mesmos para atividade criminais. As etapas em que pode se categorizar uma técnica são: Aquisição, Analise e Relatório.
                         </p>
