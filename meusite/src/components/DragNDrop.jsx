@@ -16,6 +16,8 @@ const DragNDrop = () => {
     };
 
     const handleDrop = (e) => {
+        const xhr = new XMLHttpRequest();
+
         e.preventDefault();
         setIsDragging(false);
 
@@ -26,12 +28,16 @@ const DragNDrop = () => {
             );
             e.dataTransfer.clearData();
         }
+        
+        xhr.open('GET', '')
     }
 
     const handleFileSelect = (e) => {
         if (e.target.files && e.target.files.length > 0){
             const selectedFiles = Array.from(e.target.files);
-            setFiles((prevFiles) => [...prevFiles, ...selectedFiles]);
+            setFiles(
+                (prevFiles) => [...prevFiles, ...selectedFiles]
+            );
         }
     }
     
