@@ -1,6 +1,5 @@
 package svs.content.projects.Objects;
 
-import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,27 +8,27 @@ import java.util.List;
 public class FileSignature {
     @Getter
     @Setter
-    public String filename;
+    public String fileName;
     public List<String> expectedSignatures;
-    public String actual_signature;
-    public boolean match_signature;
+    public String actualSignature;
+    public boolean matchSignature;
 
 
     public FileSignature() {
     }
 
 
-    public FileSignature(String filename, List<String> expectedSignatures, String actual_signature, boolean match_signature) {
-        this.filename = filename;
+    public FileSignature(String fileName, List<String> expectedSignatures, String actualSignature, boolean match_signature) {
+        this.fileName = fileName;
         this.expectedSignatures = expectedSignatures;
-        this.actual_signature = actual_signature;
-        this.match_signature = match_signature;
+        this.actualSignature = actualSignature;
+        this.matchSignature = match_signature;
     }
 
     public void printInfo(){
-        System.out.println(filename +
+        System.out.println(fileName +
                 "   expected signatures: " + expectedSignatures +
-                "   actual_signature: " + actual_signature +
-                "   match: " + match_signature);
+                "   actual_signature: " + actualSignature +
+                "   match: " + matchSignature);
     }
 }

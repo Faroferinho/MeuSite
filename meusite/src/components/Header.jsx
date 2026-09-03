@@ -11,11 +11,9 @@ export default function Header(){
             <nav className="navbar">
                 
                 {/* TODO - Put logo here, lol*/}
-                <a className="logo">
-                    <Link to="/" className="logo">
-                        🐙
-                    </Link>
-                </a>
+                <Link to="/" className="logo">
+                    🐙
+                </Link>
 
                 <ul className="nav-links">
 
